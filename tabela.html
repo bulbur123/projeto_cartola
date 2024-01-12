@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabela em JavaScript</title>
+</head>
+<body>
+
+<h2>Minha Tabela</h2>
+
+<button onclick="criarTabela()">Criar Tabela</button>
+
+<script>
+function criarTabela() {
+  // Criando uma tabela
+  var tabela = document.createElement('table');
+  tabela.border = '1';
+
+  // Criando linhas e colunas
+  var linhas = prompt('Digite o número de linhas:');
+  var colunas = prompt('Digite o número de colunas:');
+
+  for (var i = 0; i < linhas; i++) {
+    var linha = tabela.insertRow(i);
+
+    for (var j = 0; j < colunas; j++) {
+      var celula = linha.insertCell(j);
+      var nome = prompt('Digite o nome para a célula (' + (i + 1) + ', ' + (j + 1) + '):');
+      celula.innerHTML = '<input type="text" value="' + nome + '">';
+    }
+  }
+
+  // Adicionando a tabela ao corpo do documento
+  document.body.appendChild(tabela);
+}
+</script>
+
+</body>
+</html>
